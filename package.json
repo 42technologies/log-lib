@@ -1,0 +1,13 @@
+{
+  "name": "log-lib",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.coffee",
+  "author": "42",
+  "license": "proprietary",
+  "dependencies": {
+    "bunyan": "~0.23.1",
+    "lodash": "~2.4.1",
+    "bunyan-logentries": "~0.1.0"
+  }
+}
