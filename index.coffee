@@ -6,8 +6,6 @@ bunyanLogentries = require 'bunyan-logentries'
 
 CONFIG =
     mode: process.env.NODE_ENV or 'development'
-    logentries:
-        token: process.env.logentries__token or 'c7f91048-fc27-43c0-836b-7e5c74e2bccd'
 
 
 BunyanLogentriesStream = (config) ->
@@ -23,7 +21,6 @@ module.exports = (options, logentries) ->
     log = log.child(mode:CONFIG.mode)
 
     logentriesStream = do ->
-        logentries = _.extend {}, CONFIG.logentries, logentries
         try return new BunyanLogentriesStream(logentries)
 
     if logentriesStream
@@ -33,5 +30,7 @@ module.exports = (options, logentries) ->
             stream: logentriesStream
             level: 'debug'
         ]
+    else
+        log.info "Logentries support disabled; config was undefined"
 
     return log

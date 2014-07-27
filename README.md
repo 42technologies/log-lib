@@ -14,10 +14,8 @@ logger.info("for great justice")
 
 ### Logentries Integration
 
-This logger uses a Logentries stream. In order for it to work,
-you must define a `logentries__token` environment variable.
-
-Alternatively, you can pass a `{token:'<token>'}` object as
+If you want to forward logs to logentries,
+you can pass a `{token:'<token>'}` object as
 the second argument of the `Logger` constructor.
 
 ```coffeescript
